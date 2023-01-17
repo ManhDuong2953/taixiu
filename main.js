@@ -117,12 +117,15 @@ hoathoahuybatdaudat();
 const handleMusic = () => {
   if (confirm("Bạn muốn làm tý nhạc chứ ??")) {
     music.play();
+    !music.muted
   } else {
     music.pause();
   }
 };
 
 handleMusic();
+
+// document.querySelector("html").onclick = music.play();
 
 var mymns = {
   mns: myMoney.attributes.value.value,
@@ -266,6 +269,10 @@ const timeDown = (time_init) => {
     if (time_init === 1) {
       hamhienthi(XiNgaus.list);
       myMoney.innerHTML = `$${mymns.mns.toLocaleString("en-US")}`;
+      betSuccess.mns = 0;
+      betSuccess.st = "";
+      tienxiu.innerHTML = "";
+      tientai.innerHTML = "";
       tiengtienve.play();
     }
   }
@@ -331,10 +338,6 @@ const gameOver = () => {
       btn.classList.add("disable");
     });
     handleMns();
-    betSuccess.mns = 0;
-    betSuccess.st = "";
-    tienxiu.innerHTML = "";
-    tientai.innerHTML = "";
   }, 3000);
 };
 

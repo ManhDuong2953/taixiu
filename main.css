@@ -182,11 +182,19 @@ img.xingau {
 
 
 
-.img-datcuoc {
+.img-hoathoa-datcuoc,
+.img-hoathoa-batdaudat,
+.img-hoathoa-lan,
+.img-hoathoa-allin,
+.img-hoathoa-huy {
     display: none;
-    z-index: 99;
     transform: translateX(150%);
-    animation: hoathoa 1.4s ease-in-out;
+    animation: hoathoa 2s ease-in-out;
+}
+
+
+.img-datcuoc.posi-set {
+    z-index: 200;
 }
 
 
@@ -261,6 +269,7 @@ img.btn-cuoc.btn {
     right: 44%;
 
 }
+
 h1.tien-cuaban {
     position: absolute;
     color: rgb(0 0 0);
@@ -274,6 +283,7 @@ h1.tien-cuaban {
     align-items: center;
     height: 40px;
 }
+
 .demnguoc.posi-set {
     top: 36%;
     background: -webkit-linear-gradient(white, red, yellow);
@@ -286,7 +296,13 @@ h1.tien-cuaban {
 
 }
 
-
+h3.footer.posi-set {
+    color: rgb(255, 255, 255);
+    bottom: -144px;
+    text-align: center;
+    text-shadow: 0px 2px rgb(0, 0, 0);
+    font-size: 11px;
+}
 
 
 

@@ -34,13 +34,12 @@ var betSuccess = {
   mns: 0,
   st: "",
 };
-
 var XiNgaus = {
   list: [],
 };
 //
-const timeLoading = 30;
-const timeWaiting = 10;
+const timeLoading = 50;
+const timeWaiting = 15;
 
 const overlay = document.querySelector(".overlay");
 
@@ -68,7 +67,11 @@ const xingaugif = document.querySelector(".btn-xingaugif");
 
 const timevung = document.querySelector(".time");
 
-const Hoathoadatcuoc = document.querySelector(".img-datcuoc");
+const Hoathoadatcuoc = document.querySelector(".img-hoathoa-datcuoc");
+const HoathoaAllIn = document.querySelector(".img-hoathoa-allin");
+const HoathoaHuy = document.querySelector(".img-hoathoa-huy");
+const HoathoaLan = document.querySelector(".img-hoathoa-lan");
+const HoathoaBatDauDat = document.querySelector(".img-hoathoa-batdaudat");
 const tiengxingau = document.querySelector(".tienglacxingau");
 const tiengtienve = document.querySelector(".tienve");
 const tiengting = document.querySelector(".ting");
@@ -79,8 +82,48 @@ const nutAllin = document.querySelector(".btn-allin");
 const nutHuy = document.querySelector(".btn-huy");
 
 const music = document.querySelector(".music");
+const hoathoadatcuoc = () => {
+  Hoathoadatcuoc.style.display = "flex";
+  setTimeout(() => {
+    Hoathoadatcuoc.style.display = "none";
+  }, 2000);
+};
+const hoathoaallin = () => {
+  HoathoaAllIn.style.display = "flex";
+  setTimeout(() => {
+    HoathoaAllIn.style.display = "none";
+  }, 2000);
+};
+const hoathoalan = () => {
+  HoathoaLan.style.display = "flex";
+  setTimeout(() => {
+    HoathoaLan.style.display = "none";
+  }, 2000);
+};
+const hoathoahuy = () => {
+  HoathoaHuy.style.display = "flex";
+  setTimeout(() => {
+    HoathoaHuy.style.display = "none";
+  }, 2000);
+};
+const hoathoahuybatdaudat = () => {
+  HoathoaBatDauDat.style.display = "flex";
+  setTimeout(() => {
+    HoathoaBatDauDat.style.display = "none";
+  }, 2000);
+};
+hoathoahuybatdaudat();
 
-window.onclick = music.play();
+const handleMusic = () => {
+  if (confirm("Bạn muốn làm tý nhạc chứ ??")) {
+    music.play();
+  } else {
+    music.pause();
+  }
+};
+
+handleMusic();
+
 var mymns = {
   mns: myMoney.attributes.value.value,
 };
@@ -120,6 +163,7 @@ btnTai.onclick = () => {
   tiengting.play();
   bet.st = "tai";
   nutAllin.onclick = () => {
+    hoathoaallin();
     bet.mns = parseInt(mymns.mns);
     if (mymns.mns <= 0) {
       bet.mns = 0;
@@ -158,6 +202,7 @@ btnXiu.onclick = () => {
   tiengting.play();
   bet.st = "xiu";
   nutAllin.onclick = () => {
+    hoathoaallin();
     bet.mns = parseInt(mymns.mns);
     if (mymns.mns <= 0) {
       bet.mns = 0;
@@ -216,7 +261,6 @@ const timeDown = (time_init) => {
     time_init -= 1;
     timevung.innerHTML = time_init;
     if (time_init === 0) {
-      // hamhienthi(XiNgaus.list);
       clearInterval(countdown);
     }
     if (time_init === 1) {
@@ -230,11 +274,9 @@ const timeDown = (time_init) => {
 btnCuoc.onclick = () => {
   betSuccess.mns = bet.mns;
   betSuccess.st = bet.st;
-  Hoathoadatcuoc.style.display = "flex";
-  setTimeout(() => {
-    Hoathoadatcuoc.style.display = "none";
-  }, 1500);
+  hoathoadatcuoc();
   nutHuy.onclick = () => {
+    hoathoahuy();
     tienxiu.innerHTML = "";
     tientai.innerHTML = "";
     btnTai.classList.remove("pick");
@@ -254,6 +296,7 @@ const handleMns = () => {
 };
 
 const gameLoading = () => {
+  hoathoahuybatdaudat();
   Hoathoadatcuoc.style.display = "none";
   vung.style.display = "none";
   donghodemnguoc(timeLoading);
@@ -272,15 +315,16 @@ const gameOver = () => {
   Tai.classList.remove("active");
   Xiu.classList.remove("active");
   demnguoc.style.display = "none";
+  overlay.style.display = "block";
   tiengxingau.play();
   timeDown(timeWaiting);
   setTimeout(() => {
+    hoathoalan();
     handleRandCheck();
     tiengxingau.pause();
     vung.style.left = "477px";
     vung.style.top = "112px";
     document.querySelector(".btn-xingaugif").src = "";
-    overlay.style.display = "block";
     vung.style.display = "block";
     xingau.style.display = "block";
     btns.forEach((btn) => {
@@ -313,7 +357,6 @@ setInterval(() => {
   console.log(xingaugif.src);
   MainContainer();
 }, (timeLoading + timeWaiting) * 1000);
-
 
 var mousePosition;
 var offset = [0, 0];

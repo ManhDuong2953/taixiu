@@ -8,6 +8,14 @@
     box-sizing: border-box;
 }
 
+img.sound.posi-set {
+    width: 42px;
+    right: 70%;
+    top: 19%;
+    z-index: 120;
+
+}
+
 .btn {
     cursor: pointer;
 }
@@ -15,9 +23,14 @@
 
 .disable {
     pointer-events: none;
-    opacity: 0.8;
+    /* opacity: 0.5; */
+    filter: brightness(50%);
+}
+
+.disable:hover {
     cursor: not-allowed;
 }
+
 
 .overlay {
     position: fixed;
@@ -38,14 +51,14 @@ img.btn:hover {
     box-shadow: none;
 }
 
-html,
+/* html,
 body {
     cursor: url("https://1.bp.blogspot.com/-qbWo9mPKO2Y/YL9utYdQBdI/AAAAAAAAFs4/mtjGu6u2uGwtJsT4gZG4lbhLV1a5lG6OQCLcBGAsYHQ/s0/mouse-f1.png"), auto;
 }
 
 a:hover {
     cursor: url("https://1.bp.blogspot.com/-nYv2dLl3oXY/YL9utYBCh8I/AAAAAAAAFtA/wII4lVw5w4k-4isGMY41heTqk8U4TJujgCLcBGAsYHQ/s0/mouse-f2.png"), auto;
-}
+} */
 
 
 html {

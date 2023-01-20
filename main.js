@@ -82,6 +82,12 @@ const nutAllin = document.querySelector(".btn-allin");
 const nutHuy = document.querySelector(".btn-huy");
 
 const music = document.querySelector(".music");
+
+
+const btnSound = document.querySelector(".sound")
+
+btnSound.onclick = ()=> music.play()
+
 const hoathoadatcuoc = () => {
   Hoathoadatcuoc.style.display = "flex";
   setTimeout(() => {
@@ -114,18 +120,10 @@ const hoathoahuybatdaudat = () => {
 };
 hoathoahuybatdaudat();
 
-const handleMusic = () => {
-  if (confirm("Bạn muốn làm tý nhạc chứ ??")) {
-    music.play();
-    !music.muted
-  } else {
-    music.pause();
-  }
-};
 
-handleMusic();
 
-// document.querySelector("html").onclick = music.play();
+
+
 
 var mymns = {
   mns: myMoney.attributes.value.value,
@@ -189,6 +187,7 @@ btnTai.onclick = () => {
     tiennhap.onkeydown = (e) => {
       tientai.innerHTML = "";
       if (e.key === "Enter") {
+        tiennhap.placeholder = "Số khác";
         bet.mns = parseInt(e.target.value);
         tientai.innerHTML = `$${bet.mns.toLocaleString("en-US")}`;
         tiennhap.value = "";
@@ -228,6 +227,7 @@ btnXiu.onclick = () => {
     tienxiu.innerHTML = "";
     tiennhap.onkeydown = (e) => {
       if (e.key === "Enter") {
+        tiennhap.placeholder = "Số khác";
         bet.mns = parseInt(e.target.value);
         tiennhap.value = "";
         tienxiu.innerHTML = `$${bet.mns.toLocaleString("en-US")}`;
@@ -235,7 +235,9 @@ btnXiu.onclick = () => {
     };
   });
 };
-
+tiennhap.onclick = () => {
+  tiennhap.placeholder = "";
+};
 //hàm hiển thị tài xỉu
 const hamhienthi = (arr) => {
   if (hamtaixiu(arr) === "xiu") {
@@ -282,15 +284,18 @@ btnCuoc.onclick = () => {
   betSuccess.mns = bet.mns;
   betSuccess.st = bet.st;
   hoathoadatcuoc();
-  nutHuy.onclick = () => {
-    hoathoahuy();
-    tienxiu.innerHTML = "";
-    tientai.innerHTML = "";
-    btnTai.classList.remove("pick");
-    btnXiu.classList.remove("pick");
-    betSuccess.mns = 0;
-    betSuccess.st = "";
-  };
+};
+nutHuy.onclick = () => {
+  hoathoahuy();
+  tienxiu.innerHTML = "";
+  tientai.innerHTML = "";
+  btnTai.classList.remove("pick");
+  btnXiu.classList.remove("pick");
+  betSuccess.mns = 0;
+  betSuccess.st = "";
+  btns.forEach((btn) => {
+    btn.classList.add("disable");
+  });
 };
 
 const handleMns = () => {

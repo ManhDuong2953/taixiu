@@ -38,7 +38,7 @@ var XiNgaus = {
   list: [],
 };
 //
-const timeLoading = 50;
+const timeLoading = 25;
 const timeWaiting = 15;
 
 const overlay = document.querySelector(".overlay");

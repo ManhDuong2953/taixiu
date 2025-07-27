@@ -78,7 +78,7 @@ html {
 
 .img_ban {
     position: relative;
-    width: 94%;
+    width: 76%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -371,15 +371,15 @@ img.dia-trang.posi-set {
     }
 
     25% {
-        transform: translateX(24%);
+        transform: translateX(45%);
     }
 
     50% {
-        transform: translateX(24%);
+        transform: translateX(45%);
     }
 
     75% {
-        transform: translateX(24%);
+        transform: translateX(45%);
     }
 
     100% {

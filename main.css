@@ -78,7 +78,7 @@ html {
 
 .img_ban {
     position: relative;
-    width: 76%;
+    width: 76vw;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -190,7 +190,7 @@ img.xingau {
 
 .cuoc-tai.pick,
 .cuoc-xiu.pick {
-    background-color: rgb(212, 15, 15);
+    background-color: rgb(212 15 15 / 40%);
 }
 
 
